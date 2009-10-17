@@ -1,0 +1,29 @@
+"kon" is derived from "конь", the Russian word for Knight, and denotes a simple
+command-line tool for generating Fischer Random Chess (also called Chess960)
+starting positions, either randomly or by #id.
+
+Of course, you can find dozens of tools like that out there, especially online
+applets (see links below), but I thought it would be fun to implement that as a
+mini-project, trying to get my hands a bit dirty with python.  Another aspect
+that comes to my mind right now: there are only 960 positions in that game,
+which means we could easily just save all those positions once in a file and
+the "generator" does nothing more than randomly create a number between 0 and
+959 and get the approprite entry from the file that number references to. *But*
+nevertheless just for fun, I want those positions to be calculated every time
+(it's a trivial procedure anyway), maybe I have to implement it on a very
+memory-limited microcontroller some day, who knows? ;-)
+
+Vienna, 17.10.2009
+Sebastian "theStack" Falbesoner
+
+Interesting links:
+	Wikipedia article on Fischer Random Chess:
+		http://en.wikipedia.org/wiki/Chess_960
+	The numbering scheme, most important for that project:
+		http://en.wikipedia.org/wiki/Chess960_numbering_scheme
+	All 960 starting positions in one image: 
+		http://playchess960.com/images/AllPositionsChess960.gif
+	Online random position generator with GUI and explanation of rules:
+		http://www.chessgames.com/perl/fischerandom
+	Chess960 portal:
+		http://www.chess960.net
