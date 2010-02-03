@@ -9,6 +9,7 @@ class MainWindow(wx.Frame):
 			title=caption,
 			size=(300, 300),
 			style=wx.MINIMIZE_BOX | wx.CAPTION | wx.SYSTEM_MENU | wx.CLOSE_BOX)
+		self.Centre()
 		self.Show(True)
 
 app = wx.App()
