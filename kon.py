@@ -1,5 +1,19 @@
 #!/usr/bin/env python
 import sys, random
+import wx
+
+class MainWindow(wx.Frame):
+	def __init__(self, caption):
+		wx.Frame.__init__(self,
+			parent=None,
+			title=caption,
+			size=(300, 300),
+			style=wx.MINIMIZE_BOX | wx.CAPTION | wx.SYSTEM_MENU | wx.CLOSE_BOX)
+		self.Show(True)
+
+app = wx.App()
+MainWindow('kon')
+app.MainLoop()
 
 desired_id = 0
 free_fields = []
