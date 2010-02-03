@@ -2,6 +2,23 @@
 import sys, random
 import wx
 
+class TopPanel(wx.Panel):
+	def __init__(self, parent, id):
+		wx.Panel.__init__(self, parent, id, style=wx.BORDER_SUNKEN)
+		self.text = "Control Area"
+		button = wx.Button(self, -1, "Generate new random position", (50, 50))
+		self.Bind(wx.EVT_BUTTON, self.OnPress, id=button.GetId())
+
+	def OnPress(self, event):
+		value = int(self.text.GetLabel())
+		value += 1
+		self.text.SetLabel(str(value))
+		
+class BottomPanel(wx.Panel):
+	def __init__(self, parent, id):
+		wx.Panel.__init__(self, parent, id, style=wx.BORDER_SUNKEN)
+		self.text = "Chess960 starting position from A to H"
+
 class MainWindow(wx.Frame):
 	def __init__(self, caption):
 		wx.Frame.__init__(self,
@@ -9,6 +26,14 @@ class MainWindow(wx.Frame):
 			title=caption,
 			size=(300, 300),
 			style=wx.MINIMIZE_BOX | wx.CAPTION | wx.SYSTEM_MENU | wx.CLOSE_BOX)
+		panel = wx.Panel(self, -1)
+		topPanel = TopPanel(panel, -1)
+		bottomPanel = BottomPanel(panel, -1)
+		hbox = wx.BoxSizer()
+		hbox.Add(topPanel, 1, wx.EXPAND | wx.ALL, 5)
+		hbox.Add(bottomPanel, 1, wx.EXPAND | wx.ALL, 5)
+		panel.SetSizer(hbox)
+	
 		self.Centre()
 		self.Show(True)
 
